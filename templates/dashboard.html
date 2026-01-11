@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Dashboard</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+
+<div class="container dashboard">
+
+    <div class="top-bar">
+        <h2>Welcome, {{ session.name }}</h2>
+        <a href="/logout">Logout</a>
+    </div>
+
+    <div class="total">
+        Total Expense: ₹ {{ total }}
+    </div>
+
+    <a href="/add_expense">➕ Add Expense</a>
+
+    <table>
+        <tr>
+            <th>Amount</th>
+            <th>Category</th>
+            <th>Date</th>
+            <th>Description</th>
+        </tr>
+
+        {% for e in expenses %}
+        <tr>
+            <td>₹{{ e.amount }}</td>
+            <td>{{ e.category }}</td>
+            <td>{{ e.expense_date }}</td>
+            <td>{{ e.description }}</td>
+        </tr>
+        {% endfor %}
+    </table>
+
+</div>
+
+</body>
+</html>
