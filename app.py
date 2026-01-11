@@ -1,3 +1,4 @@
+import os
 from flask import Flask, render_template, request, redirect, session
 from flask_mysqldb import MySQL
 import MySQLdb.cursors
@@ -129,4 +130,5 @@ def logout():
 # ---------------- Run App ----------------
 if __name__ == '__main__':
     app.run(debug=True)
+
 
